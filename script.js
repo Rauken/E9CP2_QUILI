@@ -13,10 +13,14 @@ $(document).ready(function() {
 
   $("#container-tweets").on('click', '.fa-heart', function() {
     $(this).toggleClass('fill');
-    var counter = $(".counter").val();
-    counter++;
+    var counter = $(this).siblings('.counter').text();
+    if(counter==0){
+      counter++;
+    }else{
+      counter--;
+    }
     console.log(counter);
-    $(this).closest('.counter').text(" "+counter);
+    $(this).siblings('.counter').text(counter);
   });
 
   $("#container-tweets").on('click', '.fa-times', function() {
